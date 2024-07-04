@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="year">
+        
+            <div class="decagon thousand">
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+            </div>
+            <div class="decagon hundred">
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+            </div>
+            <div class="decagon ten">
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+            </div>
+            <div class="decagon unit">
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+                <div class="face"></div>
+            </div>
+    
+        </div>
+    
+    
+        <div class="buttons">
+    
+            <div class="top">
+                <button id="mil" onclick="goUpDown(1,'thousand')">&#11205;</button>
+                <button id="cen" onclick="goUpDown(1,'hundred')">&#11205;</button>
+                <button id="dec" onclick="goUpDown(1,'ten')">&#11205;</button>
+                <button id="uni" onclick="goUpDown(1,'unit')">&#11205;</button>
+            </div>
+    
+            <div class="bot">
+                <button id="mil2" onclick="goUpDown(0,'thousand')">&#11206;</button>
+                <button id="cen2" onclick="goUpDown(0,'hundred')">&#11206;</button>
+                <button id="dec2" onclick="goUpDown(0,'ten')">&#11206;</button>
+                <button id="uni2" onclick="goUpDown(0,'unit')">&#11206;</button>
+            </div>
+    
+        </div>
+    
+        <div class="loaders">
+            <input type="text" name="year" id="thousand" value="0">
+            <input type="text" name="year" id="hundred" value="0">
+            <input type="text" name="year" id="ten" value="0">
+            <input type="text" name="year" id="unit" value="0">
+            <div id="result">
+                IS <span id="not">NOT</span> <span id="leap">LEAP</span>
+            </div>
+        </div>
+    
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

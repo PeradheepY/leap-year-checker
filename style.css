@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+:root {
+	--deca:  polygon(
+        34.54915% 2.44717%,
+        65.45085% 2.44717%,
+        90.45085% 20.61074%,
+        100% 50%,
+        90.45085% 79.38926%,
+        65.45085% 97.55283%,
+        34.54915% 97.55283%,
+        9.54915% 79.38926%,
+        0% 50%,
+        9.54915% 20.61074%
+    );
+	--ok: #adff2f;
+	--no: #ee1000;
+}
+
+* {
+	box-sizing: border-box;
+	transform-style: preserve-3d;
+	outline: none;
+}
+
+body {
+	margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Anton', Arial, Helvetica, serif;	
+    background: linear-gradient(to top, #030a03 0%, #28373e 100%);
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+	perspective: 100vmin;
+	cursor: default;
+}
+
+.container::before {
+    --bg: #202e35;
+    content: "";
+    background: 
+		linear-gradient(90deg, var(--bg) calc(50% - 30vmin), #fff0 0 calc(50% + 30vmin), var(--bg) 0 100% ), 
+		linear-gradient(180deg, var(--bg) calc(50% - 10.5vmin), #fff0 0 calc(50% + 10.5vmin), var(--bg) 0 100% );
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0vmin);
+    z-index: 2;
+    opacity: 0.995;
+	filter: 
+		drop-shadow(0px 0px 3px #000) 
+		drop-shadow(0px -5px 5px #000) 
+		drop-shadow(0px 5px 5px #000);
+}
+
+.year {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(0deg) rotateX(0deg) translateZ(-10vmin);
+}
+
+
+
+
+
+
+
+
+
+
+
+	
+/*** DECAGON ***/
+
+.decagon {
+	--width: 50;
+    --height: 50;
+    --depth: 12;
+    --hue: 200;
+    --sat: 0%;
+	--nw: -90deg;
+    height: calc(var(--height) * 1vmin);
+    width: calc(var(--width) * 1vmin);
+    position: absolute;
+    transform: rotateX(var(--nw)) rotateZ(0deg) rotateY(90deg);
+	transition: all 0.5s ease 0s;
+}
+
+.decagon .face {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle at 75% 50%, #0008, #6668), radial-gradient(circle at 75% 50%, #000, #666);
+    box-shadow: 0 0 2vmin 2vmin #10101099 inset;
+    overflow: hidden;
+    border-radius: 0.125vmin;
+    background-size: 100% 100%, 0.5vmin 0.5vmin;
+    border: 0.15vmin solid #333;
+}
+
+.decagon .face:nth-of-type(1) {
+	clip-path:  var(--deca);
+	transform: translate3d(-50%, -50%, calc(var(--depth) * 0.5vmin));
+	background: 
+		linear-gradient(-90deg, #fff9, #0000), 
+		repeating-radial-gradient(circle at 50% 50%, #000, #222);
+    box-shadow: none;
+    border: 0;
+    background-size: 0.15vmin 0.15vmin;
+}
+
+.decagon .face:nth-of-type(2) {
+	clip-path:  var(--deca);
+	transform: translate3d(-50%, -50%, calc(var(--depth) * -0.5vmin)) rotateY(180deg);
+	background: linear-gradient(-90deg, #fff9, #0000), repeating-radial-gradient(circle at 50% 50%, #000, #222);
+    box-shadow: none;
+    border: 0;
+    background-size: 0.15vmin 0.15vmin;
+}
+
+.decagon .face:nth-of-type(1n + 3) {
+	width: calc(calc(calc(var(--width) * 31) / 100) * 1vmin);
+    height: calc(var(--depth) * 1vmin);
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(90deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+    filter: hue-rotate(360deg);
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decagon .face:nth-of-type(4) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(54deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+.decagon .face:nth-of-type(5) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(18deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+.decagon .face:nth-of-type(6) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(-18deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+.decagon .face:nth-of-type(7) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(-54deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+.decagon .face:nth-of-type(8) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(-90deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+.decagon .face:nth-of-type(9) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(-126deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+.decagon .face:nth-of-type(10) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(-162deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+.decagon .face:nth-of-type(11) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(-198deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+.decagon .face:nth-of-type(12) {
+    transform: translate(-50%, -50%) rotateY(90deg) rotateX(-234deg) rotateZ(-90deg) translate3d(0vmin, 0, calc(var(--width) * 0.475vmin));
+}
+
+
+.decagon .face:nth-of-type(1n + 3):after {
+    content: "0";
+    transform: rotate(-90deg);
+    position: absolute;
+    font-size: 12vmin;
+	color: #fff;
+	text-shadow: 2px 2px 0px #000, 0px 0px 2px #00bcd4;
+}
+
+.decagon .face:nth-of-type(4):after {
+    content: "1";
+}
+
+.decagon .face:nth-of-type(5):after {
+    content: "2";
+}
+
+.decagon .face:nth-of-type(6):after {
+    content: "3";
+}
+
+.decagon .face:nth-of-type(7):after {
+    content: "4";
+}
+
+.decagon .face:nth-of-type(8):after {
+    content: "5";
+}
+
+.decagon .face:nth-of-type(9):after {
+    content: "6";
+}
+
+.decagon .face:nth-of-type(10):after {
+    content: "7";
+}
+
+.decagon .face:nth-of-type(11):after {
+    content: "8";
+}
+
+.decagon .face:nth-of-type(12):after {
+    content: "9";
+}
+
+
+
+.decagon.unit {
+    margin-left: 37.5vmin;
+}
+
+.decagon.ten {
+    margin-left: 12.5vmin;
+}
+
+.decagon.hundred {
+    margin-left: -12.5vmin;
+}
+
+.decagon.thousand {
+    margin-left: -37.5vmin;
+}
+
+
+
+/*
+
+.decagon.mov-1 {
+    transform: rotateX(-126deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-2 {
+    transform: rotateX(-162deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-3 {
+    transform: rotateX(-198deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-4 {
+    transform: rotateX(-234deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-5 {
+    transform: rotateX(-270deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-6 {
+    transform: rotateX(-306deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-7 {
+    transform: rotateX(-342deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-8 {
+    transform: rotateX(-378deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-9,
+.decagon.mov--1 {
+    transform: rotateX(-414deg) rotateZ(0deg) rotateY(90deg);
+}
+.decagon.mov-10,
+.decagon.mov-0 {
+    transform: rotateX(-90deg) rotateZ(0deg) rotateY(90deg);
+}
+
+*/
+
+
+
+
+
+
+
+
+
+.buttons {
+    position: absolute;
+    width: 62vmin;
+    height: 36vmin;
+    background: #ff000000;
+    z-index: 3;
+    top: calc(50% - 18vmin);
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons > div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5vmin;
+}
+
+.buttons button {
+    width: 12vmin;
+    height: 6vmin;
+    border: none;
+    font-size: 5vmin;
+    line-height: 7vmin;
+    cursor: pointer;
+    border-radius: 0.75vmin;
+    background: linear-gradient(145deg, #223139, #1d2930);
+    box-shadow: 
+		0.5vmin 0.5vmin 0.75vmin #1b272d, 
+		-0.5vmin -0.5vmin 0.75vmin #25353d;
+    text-shadow: 
+		-0.125vmin -0.125vmin 0.25vmin #fff4, 
+		0.125vmin 0.125vmin 0.25vmin #0004;
+    color: #22343d80;
+    transition: all 0.2s ease 0s;
+}
+
+.buttons .bot button {
+    line-height: 4vmin;
+}
+
+.buttons button:hover {
+	--arrow: var(--ok);
+    text-shadow: 0px 1px 2px #fff2, 0px -1px 2px #0008;
+}
+
+.buttons .bot button:hover {
+    --arrow: var(--no);
+}
+
+.buttons button:active {	
+    background: linear-gradient(145deg, #1d2930, #223139);
+    text-shadow: 
+		0px 1px 2px var(--arrow), 
+		0px -1px 2px var(--arrow), 
+		0px 0px 5px var(--arrow), 
+		0px 0px 10px var(--arrow);
+	transition: all 0s ease 0s;
+}
+
+
+
+
+
+
+.loaders {
+    position: absolute;
+    width: 62vmin;
+    height: 4vmin;
+    background: #ff000000;
+    z-index: 3;
+    top: calc(50% - -20vmin);
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.loaders input {
+    width: 12vmin;
+	text-align: center;
+	display: none;
+}
+
+
+
+#result {
+    width: 100%;
+    position: absolute;
+    bottom: -15vmin;
+    color: #22343d80;
+    text-align: center;
+    font-size: 12vmin;
+    text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+    gap: 1.25rem;
+	text-shadow: 
+		-0.25vmin -0.25vmin 0.5vmin #fff4, 
+		0.25vmin 0.25vmin 0.5vmin #0004;
+}
+
+#result:before {
+    content: "THE YEAR";
+    position: absolute;
+    width: 100%;
+    top: -60vmin;
+    text-align: center;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+
+#result #not {
+    color: var(--no);
+    max-width: 10rem;
+    transition: all 0.5s ease 0s;
+    overflow: hidden;
+}
+
+#result #leap {
+    color: var(--ok);
+}
+
+#result #not.not {
+    max-width: 0;
+}
+
+#result #not + #leap {
+	color: var(--no);
+}
+
+#result #not.not + #leap {
+	color: var(--ok);
+}
